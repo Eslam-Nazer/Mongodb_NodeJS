@@ -21,9 +21,14 @@ connectToDb((err) => {
 
 // routes
 app.get("/books", (req, res) => {
+  const page = req.query.page || 0;
+  const booksPerPage = 3;
+
   let books = [];
   db.collection("books")
     .find()
+    .skip(page * booksPerPage)
+    .limit(booksPerPage)
     .sort({ auhtor: 1 })
     .forEach((book) => books.push(book))
     .then(() => {
