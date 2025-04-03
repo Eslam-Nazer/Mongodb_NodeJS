@@ -1,5 +1,3 @@
-# Mongodb_NodeJS
-
 # MongoDB & Node.js Project
 
 ## 📌 Overview
